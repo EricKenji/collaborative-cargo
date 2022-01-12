@@ -48,6 +48,17 @@ User.init(
                 // this means the password must be at least four characters long
                 len: [4]
             }
+        },
+        // user rating by customers
+        rating: {
+            type: DataTypes.INTEGER,
+            // customers are allowed to not rate 
+            allowNull: true,
+            validate: {
+                isNumeric: true,
+                min: 1,
+                max: 5
+            }
         }
     },
     {
