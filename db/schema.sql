@@ -1,5 +1,5 @@
 -- DROP DATABASE
-DROP DATABASE IF EXISTS collaborative-cargo_db;
+DROP DATABASE IF EXISTS collaborative_cargo_db;
 
 -- CREATE DATABASE
-CREATE DATABASE collaborative-cargo_db;
+CREATE DATABASE collaborative_cargo_db;
