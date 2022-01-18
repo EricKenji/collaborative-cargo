@@ -21,10 +21,7 @@ Comment.init(
         },
         sender_id: {
             type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
+            allowNull: false
         }
     },
     {
