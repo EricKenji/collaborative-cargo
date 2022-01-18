@@ -14,12 +14,15 @@ Comment.init(
         comment_text: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        post_id: {
+        }, 
+        receiver_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: false
+        },
+        sender_id: {
+            type: DataTypes.INTEGER,
             references: {
-                model: 'post',
+                model: 'user',
                 key: 'id'
             }
         }

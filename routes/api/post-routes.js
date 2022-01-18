@@ -89,6 +89,34 @@ router.post('/', (req, res) => {
     });
 });
 
+router.put('/:id', (req, res) => {
+  Post.update(
+    {
+      origin: req.body.origin,
+      destination: req.body.destination,
+      pickup_date: req.body.pickup_date,
+      weight: req.body.weight,
+      miles: req.body.miles,
+      equipment_type: req.body.equipment_type
+    },
+    {
+      where: {
+        id: req.params.id
+      }
+    }
+  )
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: `No posts found with id ${req.params.id}` });
+        return;
+      }
+      res.json({ message: `Post ${req.params.id} updated`});
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 router.delete('/:id', (req, res) => {
   Post.destroy({
