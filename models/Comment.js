@@ -15,13 +15,19 @@ Comment.init(
             type: DataTypes.STRING,
             allowNull: false
         }, 
-        receiver_id: {
+        from: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            references: {
+              model: 'user',
+              key: 'id'
+            }
         },
-        sender_id: {
+        to: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            references: {
+              model: 'user',
+              key: 'id'
+            }
         }
     },
     {

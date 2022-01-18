@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post } = require('../../models');
+const { User, Post, Comment } = require('../../models');
 
 router.get('/', (req, res) => {
   User.findAll({
@@ -22,6 +22,14 @@ router.get('/:id', (req, res) => {
       {
         model: Post,
         attributes: ['id', 'origin', 'destination', 'pickup_date', 'weight', 'miles', 'equipment_type']
+      },
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
       }
     ]
   })

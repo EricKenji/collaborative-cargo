@@ -12,17 +12,13 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
 
-    // {
-    //  "comment_text": "Reply", 
-    //  "receiver_id": 2
-    // }
+    // { "comment_text": "Reply", "to": 1 }
 
     if (req.session) {
         Comment.create({
             comment_text: req.body.comment_text,
-            destination: req.body.destination,
-            receiver_id: req.body.receiver_id,
-            sender_id: req.session.user_id
+            user_id: req.session.user_id,
+            to: req.body.to
         })
         .then(dbPostData => res.json(dbPostData))
         .catch(err => {
