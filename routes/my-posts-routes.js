@@ -29,7 +29,8 @@ router.get('/my-posts', withAuth, (req, res) => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
         res.render('my-posts', { 
             posts,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            username: req.session.username
         });
       })
       .catch(err => {

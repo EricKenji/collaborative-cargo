@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
       'miles', 
       'equipment_type'
     ],
-    order: [['createdAt', 'ASC']],
+    order: [['createdAt', 'DESC']],
     include: [
       {
         model: User,
@@ -25,7 +25,8 @@ router.get('/', (req, res) => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
         res.render('homepage', { 
             posts,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            username: req.session.username
         });
       })
       .catch(err => {
@@ -51,7 +52,8 @@ router.get('/users', (req, res) => {
     const users = dbPostData.map(user => user.get({ plain: true }));
     res.render('users', { 
         users,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn,
+        username: req.session.username
     });
   })
     .catch(err => {
@@ -73,7 +75,7 @@ router.get('/user/:id', (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text'],
+        attributes: ['id', 'comment_text', 'from'],
         include: {
           model: User,
           attributes: ['username', 'id']
@@ -93,7 +95,8 @@ router.get('/user/:id', (req, res) => {
     // pass data to template
     res.render('single-user', { 
         user,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn,
+        username: req.session.username
     });
   })
   .catch(err => {
@@ -150,7 +153,8 @@ router.get('/post/:id', (req, res) => {
         // pass data to template
         res.render('single-post', { 
             post,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            username: req.session.username
         });
       })
       .catch(err => {
@@ -160,7 +164,10 @@ router.get('/post/:id', (req, res) => {
 });
 
 router.get('/create-post', (req, res) => {
-    res.render('create-post');
+    res.render('create-post', { 
+      loggedIn: req.session.loggedIn,
+      username: req.session.username
+  });
   
 });
 
