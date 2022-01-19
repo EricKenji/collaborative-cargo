@@ -4,7 +4,7 @@ const apiRoutes = require('./api');
 const myPostsRoutes = require('./my-posts-routes.js');
 
 router.use('/', homeRoutes);
-router.use('/my-posts', myPostsRoutes);
+router.use('/', myPostsRoutes);
 router.use('/api', apiRoutes);
 
 router.use((req, res) => {
