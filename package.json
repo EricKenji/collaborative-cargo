@@ -1,6 +1,9 @@
 {
   "name": "collaborative-cargo",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.11.1"
+    },
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -25,7 +28,6 @@
     "express": "^4.17.2",
     "express-handlebars": "^6.0.2",
     "express-session": "^1.17.2",
-    "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
     "path": "^0.12.7",
     "sequelize": "^6.13.0"
