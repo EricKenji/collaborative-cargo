@@ -2,11 +2,6 @@
   {{#each posts as |post|}}
   <li>
      {{> post-info post }}
-     <div>
-    {{#each posts as |post|}}
-      {{> post-info post}}
-      <a href="/edit/{{post.id}}" class="edit-link">Edit post</a>
-  </div>
   </li>
   {{/each}}
 </ol>
