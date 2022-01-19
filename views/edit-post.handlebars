@@ -3,16 +3,36 @@
   <h2>
     Edit Post
   </h2>
-  <form class="edit-post-form">
-    <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
-      <input name="post-content" type="text" value="{{post.post_content}}"</input>
-    </div>
-    {{!-- <div>
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
-    </div> --}}
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
+<form class="edit-post-form">
+      <div>
+        <label class="form-label" for="origin">Origin</label>
+        <input type="text" id="origin" name="origin" class="form-input"/>
+      </div>
+      <div>
+        <label class="form-label" for="destination">Destination</label>
+        <input id="destination" name="destination" class="form-input"/>
+      </div>
+      <div>
+        <label class="form-label" for="pickup_date">Pick Up Date</label>
+        <input type="date" id="pickup_date" name="pickup_date" class="form-input"/>
+      </div>
+      <div>
+        <label class="form-label" for="weight">Weight</label>
+        <input id="weight" name="weight" class="form-input"/>
+      </div>
+      <div>
+        <label class="form-label" for="miles">Miles</label>
+        <input id="miles" name="miles" class="form-input"/>
+      </div>
+      <div>
+        <label class="form-label" for="equipment">Equipment</label>
+        <input id="equipment" name="equipment" class="form-input"/>
+      </div>
+      <div>
+
+      </div>
+    <button type="submit" class="btn">Save post</button>
+    <button type="button" class="btn">Delete post</button>
   </form>
 </article>
 
