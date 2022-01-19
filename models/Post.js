@@ -24,11 +24,11 @@ Post.init(
             allowNull: false
         },
         weight: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false
         },
         miles: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false
         },
         equipment_type: {
