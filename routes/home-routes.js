@@ -164,4 +164,48 @@ router.get('/create-post', (req, res) => {
   
 });
 
+router.get('/edit/:id', (req, res) => {
+  Post.findOne({
+      where: {
+          id: req.params.id
+      },
+      attributes: [
+          'id',
+          'title',
+          'post_content',
+          'created_at'
+      ],
+      include: [
+          {
+              model: Comment,
+              attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+              include: {
+                  model: User,
+                  attributes: ['username']
+              }
+          },
+          {
+              model: User,
+              attributes: ['username']
+          }
+      ]
+  })
+      .then(dbPostInfo => {
+          if (!dbPostInfo) {
+              res.status(404).json({ message: 'Sorry, there is  no post with this specific id.' });
+              return;
+          }
+          const post = dbPostInfo.get({ plain: true });
+
+          res.render('edit-post', {
+              post,
+              loggedIn: true
+          });
+      })
+      .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+      });
+});
+
 module.exports = router;
