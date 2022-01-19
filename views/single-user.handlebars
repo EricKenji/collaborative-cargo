@@ -2,10 +2,11 @@
 
 {{#if loggedIn}}
 
+{{#if user.comments}}
 {{> comments user.comments}}
+{{/if}}
 
 <div class="card">
-    <div class="card-header"></div>
     <form class="card-body comment-form" id="comment-form">
 
         <label class="form-label">Message</label>
