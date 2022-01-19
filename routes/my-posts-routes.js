@@ -40,7 +40,10 @@ router.get('/my-posts', withAuth, (req, res) => {
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {
-  Post.findByPk(req.params.id, {
+  Post.findOne({
+    where: {
+    id: req.params.id
+  },
     attributes: [
       'id',
       'origin',
@@ -63,7 +66,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
         
         res.render('edit-post', {
           post,
-          loggedIn: true
+          loggedIn: req.session.loggedIn,
+          username: req.session.username
         });
       } else {
         res.status(404).end();

@@ -1,40 +1,38 @@
-<article>
-  <a href="/"> &larr; Back to the homepage!</a>
-  <h2>
-    Edit Post
-  </h2>
-<form class="edit-post-form">
+
+<div class="card">
+      <h2 class="card-header">Edit Post</h2>
+      <form class="login-form edit-post-form">
       <div>
         <label class="form-label" for="origin">Origin</label>
-        <input type="text" id="origin" name="origin" class="form-input"/>
+        <input type="text" id="origin" name="origin" class="form-input" value="{{post.origin}}"/>
       </div>
       <div>
         <label class="form-label" for="destination">Destination</label>
-        <input id="destination" name="destination" class="form-input"/>
+        <input id="destination" name="destination" class="form-input" value="{{post.destination}}"/>
       </div>
       <div>
         <label class="form-label" for="pickup_date">Pick Up Date</label>
-        <input type="date" id="pickup_date" name="pickup_date" class="form-input"/>
+        <input type="date" id="pickup_date" name="pickup_date" class="form-input" value="{{post.pickup_date}}"/>
       </div>
       <div>
         <label class="form-label" for="weight">Weight</label>
-        <input id="weight" name="weight" class="form-input"/>
+        <input id="weight" name="weight" class="form-input" value="{{post.weight}}"/>
       </div>
       <div>
         <label class="form-label" for="miles">Miles</label>
-        <input id="miles" name="miles" class="form-input"/>
+        <input id="miles" name="miles" class="form-input" value="{{post.miles}}"/>
       </div>
       <div>
         <label class="form-label" for="equipment">Equipment</label>
-        <input id="equipment" name="equipment" class="form-input"/>
+        <input id="equipment" name="equipment" class="form-input" value="{{post.equipment_type}}"/>
       </div>
       <div>
 
       </div>
     <button type="submit" class="btn">Save post</button>
-    <button type="button" class="btn">Delete post</button>
+    <button type="button" class="btn delete-post-btn">Delete post</button>
   </form>
-</article>
+</div>
 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>

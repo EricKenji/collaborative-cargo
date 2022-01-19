@@ -6,7 +6,7 @@ async function editFormHandler(event) {
     const pickup_date = document.querySelector('input[name="pickup_date"]').value;
     const weight = document.querySelector('input[name="weight"]').value;
     const miles = document.querySelector('input[name="miles"]').value;
-    const equipment_type = document.querySelector('input[name="equipment_type"]').value;
+    const equipment_type = document.querySelector('input[name="equipment"]').value;
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
