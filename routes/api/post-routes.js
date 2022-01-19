@@ -63,15 +63,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // {
-	// "origin": "San Diego, CA", 
-	// "destination": "Dallas, TX", 
-	// "pickup_date": "2022-1-20", 
-	// "weight": 30000, 
-	// "miles": 1000, 
-	// "equipment_type": "Reefer", 
-	// "user_id": 1
-  // }
+  // { "origin": "San Diego, CA", "destination": "Dallas, TX", "pickup_date": "2022-1-20", "weight": 30000, "miles": 1000, "equipment_type": "Reefer", "user_id": 1 }
 
   Post.create({
     origin: req.body.origin,

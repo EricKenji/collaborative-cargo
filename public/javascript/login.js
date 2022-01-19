@@ -15,7 +15,7 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
-        window.location.replace('/dashboard/');
+        window.location.replace('/');
       } else {
         alert(response.statusText);
       }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>Collaborative Cargo</title>
+</head>
+
+<body class="flex-column min-100-vh">
+  <header class="hero">
+    <nav>
+      <a class="nav" href="/">Home</a>
+      <a class="nav" href="/users">Users</a>
+      {{#if loggedIn}}
+      <a class="nav" href="/my-posts">My Posts</a>
+      <button id="logout" class="btn-no-style">Logout</button>
+      {{else}}
+      <a class="nav" href="/login">Login</a>
+      {{/if}}
+    </nav>
+    <h1 class="app-title">Collaborative Cargo</h1>
+  </header>
+
+
+  <main>
+    {{{ body }}}
+  </main>
+
+  
+  {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>
