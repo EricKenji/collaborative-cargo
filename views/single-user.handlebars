@@ -1,6 +1,9 @@
 {{> user-info user}}
 
 {{#if loggedIn}}
+
+{{> comments user.comments}}
+
 <div class="card">
     <div class="card-header"></div>
     <form class="card-body comment-form" id="comment-form">
@@ -12,7 +15,6 @@
     </form>
 </div>
 
-{{> comments user.comments}}
 {{/if}}
 
 {{#if loggedIn}}

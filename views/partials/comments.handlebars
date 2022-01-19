@@ -1,11 +1,12 @@
 <div class="comments">
+    <div class="card">
   {{#each this}}
-    <article class="post card">
-      <div class="title card-header">
-        <p>{{from}}</p>
+    <section class="comment card-body">
+      <div class="text">
+        <p><strong>{{from}}:</strong> {{comment_text}}</p>
+        <div>({{created_at}})</div>
       </div>
-      <p class="card-body">{{comment_text}}</p>
-    </article>
+    </section>
   {{/each}}
+  </div>
 </div>
-
