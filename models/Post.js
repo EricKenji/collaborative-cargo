@@ -20,11 +20,8 @@ Post.init(
             allowNull: false
         },
         pickup_date: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            validate: {
-                isDate: true
-            }
+            type: DataTypes.STRING,
+            allowNull: false
         },
         weight: {
             type: DataTypes.INTEGER,
