@@ -6,6 +6,17 @@ const exphbs = require('express-handlebars');
 const hbs = exphbs.create({ });
 
 const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
+
+io.on('connection', function(socket) {
+  console.log('a new user is connected');
+
+  socket.on('disconnect', function() {
+    console.log('a user has disconnect');
+  })
+})
+
 const PORT = process.env.PORT || 3001;
 
 const session = require('express-session');
@@ -35,5 +46,5 @@ app.use(routes);
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  server.listen(PORT, () => console.log(`Now listening at http://localhost:${PORT}`));
 });
