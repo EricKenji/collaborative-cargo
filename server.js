@@ -9,17 +9,25 @@ const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
-io.on('connection', function(socket) {
-  console.log('a new user is connected');
+io.on('connection', (socket) => {
+  console.log(`User connected on socket ${socket.id}`);
+  socket.emit('message', `Welcome to Collaborative Cargo`);
 
-  socket.on('disconnect', function() {
-    console.log('a user has disconnect');
+  socket.broadcast.emit('message', `A user has connected`);
+
+  socket.on('disconnect', () => {
+    io.emit('message', `A user has left`);
+  })
+
+  socket.on('chatMessage', (msg) => {
+    io.emit('message', msg);
   })
 })
 
 const PORT = process.env.PORT || 3001;
 
 const session = require('express-session');
+const router = require('./routes/home-routes');
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 

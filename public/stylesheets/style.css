@@ -30,6 +30,10 @@
     line-height: 1.25;
   }
   
+  .blue {
+    color: var(--dark)
+  }
+
   #white {
       color: white;
   }

@@ -1,4 +1,4 @@
-async function comment() {
+async function comment(event) {
     event.preventDefault();
   
     const comment_text = document.querySelector('input[name="comment-body"]').value.trim();

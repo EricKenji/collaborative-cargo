@@ -63,46 +63,46 @@ router.get('/users', (req, res) => {
 });
 
 router.get('/user/:id', (req, res) => {
-  User.findOne({
-    attributes: { exclude: ['password'] },
-    where: {
-      id: req.params.id
-    },
-    attributes: [
-      'id',
-      'username'
-    ],
-    include: [
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'from', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username', 'id']
+    User.findOne({
+      attributes: { exclude: ['password'] },
+      where: {
+        id: req.params.id
+      },
+      attributes: [
+        'id',
+        'username'
+      ],
+      include: [
+        {
+          model: Comment,
+          attributes: ['id', 'comment_text', 'from', 'created_at'],
+          include: {
+            model: User,
+            attributes: ['username', 'id']
+          }
         }
+      ]
+    })
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
       }
-    ]
-  })
-  .then(dbPostData => {
-    if (!dbPostData) {
-      res.status(404).json({ message: 'No post found with this id' });
-      return;
-    }
 
-    // serialize the data
-    const user = dbPostData.get({ plain: true });
+      // serialize the data
+      const user = dbUserData.get({ plain: true });
 
-    // pass data to template
-    res.render('single-user', { 
-        user,
-        loggedIn: req.session.loggedIn,
-        username: req.session.username
+      // pass data to template
+      res.render('single-user', { 
+          user,
+          loggedIn: req.session.loggedIn,
+          username: req.session.username
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
     });
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
 });
 
 router.get('/login', (req, res) => {
