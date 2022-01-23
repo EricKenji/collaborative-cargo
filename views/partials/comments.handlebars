@@ -1,0 +1,12 @@
+<div class="comments m-5 w-75">
+    <div class="card">
+  {{#each this}}
+    <section class="comment card-body m-2">
+      <div class="text">
+        <p><strong>{{from}}:</strong> {{comment_text}}</p>
+        <div id="small" class="text-muted small">{{created_at}}</div>
+      </div>
+    </section>
+  {{/each}}
+  </div>
+</div>

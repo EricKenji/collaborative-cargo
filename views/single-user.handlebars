@@ -1,0 +1,23 @@
+<h2 class="text-center mt-5 blue">{{user.username}}</h2>
+
+
+{{#if loggedIn}}
+
+{{#if user.comments}}
+{{> comments user.comments}}
+{{/if}}
+
+<div class="card w-50 text-center mb-5">
+    <form class="card-body comment-form" id="comment-form">
+
+        <input id="comment" name="comment-body" class="form-input" placeholder="Message" autocomplete="off"/>
+
+        <button type="submit" class="btn btn-primary my-3"><i class="bi bi-send"></i></button>
+    </form>
+</div>
+
+{{/if}}
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}

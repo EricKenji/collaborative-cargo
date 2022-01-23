@@ -1,0 +1,54 @@
+:root {
+    --white: #f3f3f3;
+    --black: #000000;
+    --grey: #485050;
+    --light-grey: #686868;
+    --blue: #00a8b4;
+}
+
+ul, ol {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.navbar {
+    background-color: var(--blue);
+}
+
+header {
+    background-color: var(--grey);
+}
+
+h1 {
+    color: var(--blue);
+}
+
+nav a,
+nav button {
+    color: var(--white);
+    font-size: x-large;
+    background: none;
+    border: none;
+}
+
+nav a:hover,
+nav button:hover,
+#logout:hover {
+    color: var(--grey)
+}
+
+.logout {
+    color: var(--white);
+}
+
+.blue {
+    color: var(--blue)
+}
+
+.btn-blue {
+    color: var(--white);
+    background-color: var(--blue);
+}
