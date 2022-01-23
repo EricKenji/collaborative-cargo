@@ -1,6 +1,7 @@
-<ol class="user-list">
+<h1 class="text-secondary text-center my-5">Users</h1>
+<ol class="user-list mt-5">
   {{#each users as |user|}}
-  <li>
+  <li class="d-flex justify-content-around">
      {{> user-info user }}
   </li>
   {{/each}}

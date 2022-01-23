@@ -1,11 +1,13 @@
 {{#if posts.length}}
 <section>
-  <h2>Your Posts</h2>
+  <h1 class="text-secondary text-center mt-5 pb-5">{{username}}'s Posts</h1>
   <ol>
     {{#each posts as |post|}}
-    <li>
+    <li class="mt-5">
       {{> post-info post}}
+      <div class="d-flex justify-content-center">
         <a href="/edit/{{post.id}}" class="edit-link">Edit post {{post.id}}</a>
+      </div>
     </li>
     {{/each}}
   </ol>

@@ -17,7 +17,7 @@ router.get('/my-posts', withAuth, (req, res) => {
       'miles', 
       'equipment_type'
     ],
-    order: [['createdAt', 'ASC']],
+    order: [['createdAt', 'DESC']],
     include: [
       {
         model: User,

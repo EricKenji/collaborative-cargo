@@ -12,8 +12,6 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
 
-    // { "comment_text": "Reply", "to": 1 }
-
     if (req.session) {
         Comment.create({
             comment_text: req.body.comment_text,

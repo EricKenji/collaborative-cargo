@@ -25,4 +25,6 @@ async function comment(event) {
     }
 }
 
+window.scrollTo(0,document.body.scrollHeight);
+
 document.querySelector('.comment-form').addEventListener('submit', comment);

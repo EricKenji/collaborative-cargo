@@ -1,19 +1,19 @@
-<article class="post card">
-      <div class="title card-header">
-        <p id="white">Real Time Global Chat</p>
+<article class="card row w-50 p-0 pb-3 my-5">
+      <div class="card-header text-center">
+        <h5 class="text-secondary">Real Time Global Chat</h5>
       </div>
       <div class="card-body">
-        <form id="chat-form">
-          <div class="chat-messages"></div>
-          <input type="text" class="form-input" id='message'/>
-          <button class="btn">Send</button>
-        </form>
+        <div class="chat-messages"></div>
       </div>
+      <form id="chat-form" class="text-center" autocomplete="off">
+          <input type="text" class="form-input w-75 mb-3" id='message' placeholder="Message"/>
+          <button class="btn btn-primary"><i class="bi bi-send"></i></button>
+      </form>
 </article>
 
-<ol class="post-list">
+<ol class="post-list row">
   {{#each posts as |post|}}
-  <li>
+  <li class="">
      {{> post-info post }}
   </li>
   {{/each}}
@@ -25,8 +25,8 @@
 
     var username = 'User'
 
-    if (document.querySelector('#white').textContent.split(' ')[3] != 'Chat') {
-      var username = document.querySelector('#white').textContent.split(' ')[3]
+    if (document.querySelector('.username').textContent.split(' ')[3] != 'Chat') {
+      var username = document.querySelector('.username').textContent.split(' ')[3]
     }
 
     const chatForm = document.getElementById('chat-form')
@@ -45,6 +45,7 @@
       const message = (`<strong>${username}:</strong> ${event.target.elements.message.value}`);
 
       socket.emit('chatMessage', message);
+      document.getElementById('chat-form').reset();
     })
 
     function outputMessage(message) {

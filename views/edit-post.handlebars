@@ -1,37 +1,34 @@
 
-<div class="card">
-      <h2 class="card-header">Edit Post</h2>
-      <form class="login-form edit-post-form">
-      <div>
-        <label class="form-label" for="origin">Origin</label>
-        <input type="text" id="origin" name="origin" class="form-input" value="{{post.origin}}"/>
-      </div>
-      <div>
-        <label class="form-label" for="destination">Destination</label>
-        <input id="destination" name="destination" class="form-input" value="{{post.destination}}"/>
-      </div>
-      <div>
-        <label class="form-label" for="pickup_date">Pick Up Date</label>
-        <input type="date" id="pickup_date" name="pickup_date" class="form-input" value="{{post.pickup_date}}"/>
-      </div>
-      <div>
-        <label class="form-label" for="weight">Weight</label>
-        <input id="weight" name="weight" class="form-input" value="{{post.weight}}"/>
-      </div>
-      <div>
-        <label class="form-label" for="miles">Miles</label>
-        <input id="miles" name="miles" class="form-input" value="{{post.miles}}"/>
-      </div>
-      <div>
-        <label class="form-label" for="equipment">Equipment</label>
-        <input id="equipment" name="equipment" class="form-input" value="{{post.equipment_type}}"/>
-      </div>
-      <div>
+<div class="card row p-0 w-50">
+      <h2 class="card-header text-center text-secondary">Edit Post</h2>
 
-      </div>
-    <button type="submit" class="btn">Save post</button>
-    <button type="button" class="btn delete-post-btn">Delete post</button>
-  </form>
+        <div class="card-body text-center mt-4">
+          <form class="edit-post-form text-center">
+              <div class="form-group row">
+                <input type="text" id="origin" name="origin" class="form-control col m-2" value="{{post.origin}}" placeholder="Origin"/>
+              </div>
+              <div class="form-group row">
+                <input id="destination" name="destination" class="form-control col m-2" value="{{post.destination}}" placeholder="Destination"/>
+              </div>
+              <div class="form-group row">
+                <input id="pickup_date" name="pickup_date" class="form-control col m-2" value="{{post.pickup_date}}" placeholder="Pick Up Date"/>
+              </div>
+              <div class="form-group row">
+                <input id="weight" name="weight" class="form-control col m-2" value="{{post.weight}}" placeholder="Weight"/>
+              </div>
+              <div class="form-group row">
+                <input id="miles" name="miles" class="form-control col m-2" value="{{post.miles}}" placeholder="Miles"/>
+              </div>
+              <div class="form-group row">
+                <input id="equipment" name="equipment" class="form-control col m-2" value="{{post.equipment_type}}" placeholder="Equipment"/>
+              </div>
+            </div>
+            <div class="row">
+              <button type="submit" class="btn m-4 col border-success p-0"><i class="bi bi-save text-success"></i></button>
+              <button type="button" class="btn delete-post-btn m-4 col border-danger p-0"><i class="bi bi-trash text-danger"></i></button>
+            </div>
+          </form>
+        </div>
 </div>
 
 <script src="/javascript/edit-post.js"></script>
