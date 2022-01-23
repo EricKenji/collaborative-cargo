@@ -14,7 +14,7 @@ The user can visit the site for the first time and they are presented with the h
 
 ## Webpage
 
-The following image shows a screenshot of the application: ![ApplicationScreenshot](./public/assets/images/collabcargo_screenshot.png)
+The following image shows a screenshot of the application: ![ApplicationScreenshot](./public/assets/images/collabcargo-screenshot.png)
 
 You can access the GitHub repository here: https://github.com/EricKenji/collaborative-cargo.git. 
 
