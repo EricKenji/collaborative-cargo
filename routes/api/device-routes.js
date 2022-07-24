@@ -1,17 +1,16 @@
 const router = require('express').Router();
-const sequelize = require('../../config/connection');
-const { Post, User } = require('../../models');
+const { Device, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
-  Post.findAll({
+  Device.findAll({
+    where: {
+      user_id: req.session.user_id
+    },
     attributes: [
       'id', 
-      'origin', 
-      'destination', 
-      'pickup_date', 
-      'weight', 
-      'miles', 
-      'equipment_type'
+      'name', 
+      'device'
     ],
     order: [['id', 'DESC']],
     include: [
@@ -29,18 +28,14 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  Post.findOne({
+  Device.findOne({
     where: {
       id: req.params.id
     },
     attributes: [
       'id', 
-      'origin', 
-      'destination', 
-      'pickup_date', 
-      'weight', 
-      'miles', 
-      'equipment_type'
+      'name', 
+      'device'
     ],
     include: [
       {
@@ -51,7 +46,7 @@ router.get('/:id', (req, res) => {
   })
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: `No posts found with id ${req.params.id}` });
+        res.status(404).json({ message: `No devices found with id ${req.params.id}` });
         return;
       }
       res.json(dbPostData);
@@ -62,16 +57,10 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
-  // { "origin": "San Diego, CA", "destination": "Dallas, TX", "pickup_date": "2022-1-20", "weight": 30000, "miles": 1000, "equipment_type": "Reefer", "user_id": 1 }
-
-  Post.create({
-    origin: req.body.origin,
-    destination: req.body.destination,
-    pickup_date: req.body.pickup_date,
-    weight: req.body.weight,
-    miles: req.body.miles,
-    equipment_type: req.body.equipment_type,
+router.post('/', withAuth, (req, res) => {
+  Device.create({
+    name: req.body.name,
+    device: req.body.device,
     user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))
@@ -82,14 +71,10 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  Post.update(
+  Device.update(
     {
-      origin: req.body.origin,
-      destination: req.body.destination,
-      pickup_date: req.body.pickup_date,
-      weight: req.body.weight,
-      miles: req.body.miles,
-      equipment_type: req.body.equipment_type
+      name: req.body.name,
+      device: req.body.device
     },
     {
       where: {
@@ -111,14 +96,14 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  Post.destroy({
+  Device.destroy({
     where: {
       id: req.params.id
     }
   })
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: `No posts found with id ${req.params.id}` });
+        res.status(404).json({ message: `No device found with id ${req.params.id}` });
         return;
       }
       res.json(dbPostData);

@@ -1,9 +1,33 @@
 :root {
     --white: #f3f3f3;
     --black: #000000;
-    --grey: #485050;
+    --grey: #323232;
     --light-grey: #686868;
-    --blue: #00a8b4;
+    --blue: #02a9e5;
+}
+
+#map { 
+    height: 80vh;
+    width: 100vw;
+}
+
+#refreshButton {
+    position: absolute;
+    top: 126px;
+    left: 9px;
+    padding: 10px;
+    z-index: 1000;
+    background-color: white;
+    border-color: rgba(0, 0, 0, 0.226); 
+    border-radius: 5px;
+    font-family: Sans-serif;
+    font-weight: 600;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.container {
+    width: 100vw;
 }
 
 ul, ol {
@@ -29,9 +53,9 @@ h1 {
 nav a,
 nav button {
     color: var(--white);
-    font-size: x-large;
     background: none;
     border: none;
+    font-weight: 500;
 }
 
 nav a:hover,

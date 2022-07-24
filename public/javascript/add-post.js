@@ -1,22 +1,14 @@
 async function newFormHandler(event) {
     event.preventDefault();
 
-    const origin = document.querySelector('input[name="origin"]').value;
-    const destination = document.querySelector('input[name="destination"]').value;
-    const pickup_date = document.querySelector('input[name="pickup_date"]').value;
-    const weight = document.querySelector('input[name="weight"]').value;
-    const miles = document.querySelector('input[name="miles"]').value;
-    const equipment_type = document.querySelector('input[name="equipment"]').value;
+    const name = document.querySelector('input[name="name"]').value;
+    const device = document.querySelector('input[name="device"]').value;
 
-    const response = await fetch(`/api/posts`, {
+    const response = await fetch(`/api/devices`, {
         method: 'POST',
         body: JSON.stringify({
-            origin,
-            destination,
-            pickup_date,
-            weight,
-            miles,
-            equipment_type
+            name,
+            device
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -24,7 +16,7 @@ async function newFormHandler(event) {
     });
 
     if(response.ok) {
-        document.location.replace('/my-posts');
+        document.location.replace('/');
     } else {
         alert(response.statusText);
     }
