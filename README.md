@@ -16,8 +16,4 @@ The user can visit the site for the first time and they are presented with the h
 
 The following image shows a screenshot of the application: ![ApplicationScreenshot](./public/assets/images/collabcargo-screenshot.png). 
 
-[Click here for a wlakthrough video](https://watch.screencastify.com/v/DKHNjWkaB0kZHIOEnat5)
-
 You can access the GitHub repository here: https://github.com/EricKenji/collaborative-cargo.git. 
-
-You can access the webpage here: https://collaborative-cargo.herokuapp.com/. 
